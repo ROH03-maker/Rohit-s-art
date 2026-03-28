@@ -143,11 +143,10 @@ footer{
 
 <!-- GALLERY -->
 <div class="grid hidden">
-  <!-- 👉 Replace with your images -->
-  <img src="D:\art web\download (5).jpeg">
-  <img src="D:\art web\download (4).jpeg">
-  <img src="D:\art web\download (3).jpeg">
-  <img src="D:\art web\file_00000000a1907208aa18591e932beb0e.png">
+  <img src="download (5).jpeg">
+  <img src="download (4).jpeg">
+  <img src="download (3).jpeg">
+  <img src="file_00000000a1907208aa18591e932beb0e.png">
 </div>
 
 <!-- PRICING -->
@@ -169,10 +168,31 @@ footer{
   <textarea id="details" placeholder="Details / Reference link"></textarea><br>
 
   <button onclick="sendOrder()">Send Order</button>
+</div>
+
+<!-- PAYMENT -->
+<div class="card hidden">
+  <h2>💳 Payment</h2>
+  <p>Pay using GPay / PhonePe / Paytm</p>
+
+  <!-- A5 -->
+  <a href="upi://pay?pa=rohitsarkar03122004@oksbi&pn=Rohit&am=300&tn=A5 Art Payment&cu=INR">
+    <button>Pay ₹300 (A5)</button>
+  </a>
 
   <br><br>
 
-  
+  <!-- A4 -->
+  <a href="upi://pay?pa=rohitsarkar03122004@oksbi&pn=Rohit&am=400&tn=A4 Art Payment&cu=INR">
+    <button>Pay ₹400 (A4)</button>
+  </a>
+
+  <br><br>
+
+  <!-- QR -->
+  <h3>Or Scan & Pay</h3>
+  <img src="d:\art web\GooglePay_QR.png" width="200" style="border-radius:10px;">
+  <p>Scan using any UPI app</p>
 </div>
 
 <!-- FOOTER -->
@@ -200,7 +220,7 @@ document.querySelectorAll(".hidden").forEach(el=>{
   observer.observe(el);
 });
 
-// WHATSAPP ORDER (FIXED)
+// WHATSAPP ORDER
 function sendOrder(){
   let name = document.getElementById("name").value;
   let size = document.getElementById("size").value;
