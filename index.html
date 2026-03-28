@@ -167,7 +167,6 @@ footer{
   <h2>Order Now</h2>
   <input id="name" placeholder="Name"><br>
   <input id="size" placeholder="Page Size"><br>
-  <textarea id="Address" placeholder="Address"></textarea><br>
   <textarea id="details" placeholder="Details"></textarea><br>
 
   <button onclick="sendOrder()">Send Order</button>
@@ -204,10 +203,9 @@ document.querySelectorAll(".hidden").forEach(el=>{
 function sendOrder(){
   let name=document.getElementById("name").value;
   let size=document.getElementById("size").value;
-  let address=document.getElementById("address").value;
   let details=document.getElementById("details").value;
 
-  let msg=`New Order:%0AName:${name}%0ASize:${size}%0AAddress:${address}%0ADetails:${details}`;
+  let msg=`New Order:%0AName:${name}%0ASize:${size}%0ADetails:${details}`;
 
   window.open(`https://wa.me/918927598500?text=${msg}`);
 }
