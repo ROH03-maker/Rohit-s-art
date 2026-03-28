@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rohit's Art</title>
+
+<style>
+:root{
+  --bg:#0f172a;
+  --text:white;
+}
+
+body{
+  margin:0;
+  font-family:sans-serif;
+  background:linear-gradient(270deg,#0f172a,#1e3a8a,#9333ea);
+  background-size:600% 600%;
+  animation:bgMove 10s infinite;
+  color:var(--text);
+}
+
+/* BACKGROUND ANIMATION */
+@keyframes bgMove{
+  0%{background-position:0%}
+  50%{background-position:100%}
+  100%{background-position:0%}
+}
+
+/* LOADER */
+#loader{
+  position:fixed;
+  width:100%;
+  height:100vh;
+  background:black;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  z-index:9999;
+  color:white;
+  font-size:20px;
+}
+
+/* NAV */
+nav{
+  display:flex;
+  justify-content:space-between;
+  padding:15px;
+  backdrop-filter:blur(10px);
+}
+
+/* HERO */
+.hero{
+  text-align:center;
+  padding:60px;
+}
+
+/* GLASS CARD */
+.card{
+  background:rgba(255,255,255,0.1);
+  backdrop-filter:blur(10px);
+  padding:20px;
+  margin:20px;
+  border-radius:15px;
+  text-align:center;
+}
+
+/* GALLERY */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+  gap:10px;
+  padding:20px;
+}
+
+.grid img{
+  width:100%;
+  border-radius:10px;
+  transition:0.4s;
+}
+
+.grid img:hover{
+  transform:scale(1.1);
+}
+
+/* FORM */
+.form{
+  text-align:center;
+  padding:20px;
+}
+
+input,textarea{
+  width:90%;
+  max-width:400px;
+  margin:10px;
+  padding:10px;
+}
+
+/* BUTTON */
+button{
+  padding:10px 20px;
+  border:none;
+  background:#38bdf8;
+  cursor:pointer;
+  border-radius:5px;
+  transition:0.3s;
+}
+
+button:hover{
+  transform:scale(1.1);
+  background:#22c55e;
+}
+
+/* SCROLL ANIMATION */
+.hidden{
+  opacity:0;
+  transform:translateY(30px);
+  transition:all 1s;
+}
+
+.show{
+  opacity:1;
+  transform:translateY(0);
+}
+
+/* FOOTER */
+footer{
+  text-align:center;
+  padding:20px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- LOADER -->
+<div id="loader">Loading Rohit's Art...</div>
+
+<!-- NAV -->
+<nav>
+  <h2>Rohit's Art</h2>
+</nav>
+
+<!-- HERO -->
+<section class="hero hidden">
+  <h1>✨ Custom Anime Art 🎨</h1>
+  <p>Handmade Chibi Drawings</p>
+</section>
+
+<!-- GALLERY -->
+<div class="grid hidden">
+  <img src="download (5).jpeg">
+  <img src="download (4).jpeg">
+  <img src="download (3).jpeg">
+</div>
+
+<!-- PRICING -->
+<div class="card hidden">
+  <h3>Pricing</h3>
+  <p>A5: ₹150-300</p>
+  <p>A4: ₹250-400</p>
+</div>
+
+<!-- ORDER -->
+<div class="form hidden">
+  <h2>Order Now</h2>
+  <input id="name" placeholder="Name"><br>
+  <input id="size" placeholder="Size"><br>
+  <textarea id="details" placeholder="Details"></textarea><br>
+
+  <button onclick="sendOrder()">Send Order</button>
+
+  <br><br>
+
+</div>
+
+<footer class="hidden">
+  <p>Instagram: rrrohittt_3</p>
+  <p>WhatsApp: 8927598500</p>
+</footer>
+
+<script>
+// LOADER
+window.addEventListener("load",()=>{
+  document.getElementById("loader").style.display="none";
+});
+
+// SCROLL ANIMATION
+const observer = new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add("show");
+    }
+  });
+});
+
+document.querySelectorAll(".hidden").forEach(el=>{
+  observer.observe(el);
+});
+
+// WHATSAPP
+function sendOrder(){
+  let name=document.getElementById("name").value;
+  let size=document.getElementById("size").value;
+  let details=document.getElementById("details").value;
+
+  let msg=`New Order:%0AName:${name}%0ASize:${size}%0ADetails:${details}`;
+
+  window.open(`https://wa.me/918927598500?text=${msg}`);
+}
+</script>
+
+</body>
+</html>
